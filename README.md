@@ -3,6 +3,8 @@ clock quiz generator for niko
 
 ---
 
+* ruby 2.3 必須
+
 * Windowsで、clock_quiz_setting.yaml を、 ClockQuiz.bat にdragすると、clock_quiz_setting.yaml の設定にしたがって、ファイル作成。
 
 * 設定yamlの内容
