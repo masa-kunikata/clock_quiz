@@ -8,11 +8,12 @@ function clock(id, time, options){
   var radius = (options && options['radius']) ? options['radius'] : (0.95 * 0.5 * size);
   var fontSize = (options && options['fontSize']) ? options['fontSize'] : 15;
   var displaySecond = (options && options['displaySecond']) ? options['displaySecond'] : false;
+  var displayText = (options && options['displayText']) ? options['displayText'] : false;
   
   canvas.setAttribute('width', size);
   canvas.setAttribute('height', size);
-  var centerX = size * 0.5
-  var centerY = size * 0.5
+  var centerX = size * 0.5;
+  var centerY = size * 0.5;
   
   var ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -21,7 +22,7 @@ function clock(id, time, options){
     ctx.beginPath();
     ctx.lineWidth = 1.0;
     ctx.arc(centerX, centerY, radius, 0, Math.PI * 2, false);
-    ctx.stroke(); //
+    ctx.stroke();
 
     ctx.beginPath();
     ctx.textAlign = 'center';
@@ -62,6 +63,13 @@ function clock(id, time, options){
   if(displaySecond){ //秒針
     var secondsTheta = (Math.PI * 0.5) - ((2 * Math.PI) * dt.getSeconds() / 60);
     drawHand(secondsTheta, 1.0, 0.7);
+  }
+  if(displayText){ //時刻のデジタル表示
+    ctx.beginPath();
+    ctx.textAlign = 'center';
+    ctx.textBaseLine = 'middle';
+    ctx.font = String(fontSize) + "px 'Times New Roman'";
+    ctx.fillText(time, centerX, centerY + (fontSize / 3.0) + (radius * 0.3));
   }
 }
 /*現在時刻の時計を表示する*/
