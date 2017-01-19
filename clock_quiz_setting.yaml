@@ -1,0 +1,14 @@
+
+quiz_count: 12
+quiz_sort: yes
+selection_count: 4
+selection_sort: no
+
+min_hour: 1
+max_hour: 12
+minute_unit: 20
+
+answer_ok_color: lightgreen
+
+file_path_proc: |
+  ->(){"quiz/clock_quiz_#{Time.now.strftime('%Y%m%d_%H%M%S')}.html"}

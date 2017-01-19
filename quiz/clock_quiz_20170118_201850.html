@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tokei_quiz</title>
+<style>
+.question td {
+  vertical-align: top;
+  line-height: 1.5em;
+}
+.question {
+  float: left;
+}
+</style>
+<script src='js/canvas_clock.js'></script>
+<script>
+/*正答選択時のイベント登録*/
+function registerAnswerOkEvents(num){
+  var question = document.getElementById('q' + num);
+  var answer = document.getElementById('a' + num);
+  answer.addEventListener('change', function(){
+   question.style['background-color'] = answer.checked ? 'lightgreen' : 'white';
+  });
+  question.addEventListener('click', function(){
+   if(answer.checked) return;
+   question.style['background-color'] = 'white';
+  });
+}
+</script>
+</head>
+<body>
+ 
+  <table class='question' id="q1">
+    <tr>
+      <td>
+       <span id="s1">■もんだい [1]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r1" value="01:00"
+            
+              id="a1"
+            
+          >
+          (1) &nbsp; 1 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r1" value="03:00"
+            
+          >
+          (2) &nbsp; 3 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r1" value="08:00"
+            
+          >
+          (3) &nbsp; 8 じ
+        </label><br />
+       
+       <script>registerAnswerOkEvents('1');</script>
+      </td>
+      <td>
+        <canvas id="c0"></canvas>
+        <script>clock('c0', '01:00');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q2">
+    <tr>
+      <td>
+       <span id="s2">■もんだい [2]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r2" value="03:00"
+            
+              id="a2"
+            
+          >
+          (1) &nbsp; 3 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r2" value="05:00"
+            
+          >
+          (2) &nbsp; 5 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r2" value="07:00"
+            
+          >
+          (3) &nbsp; 7 じ
+        </label><br />
+       
+       <script>registerAnswerOkEvents('2');</script>
+      </td>
+      <td>
+        <canvas id="c1"></canvas>
+        <script>clock('c1', '03:00');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q3">
+    <tr>
+      <td>
+       <span id="s3">■もんだい [3]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r3" value="02:00"
+            
+              id="a3"
+            
+          >
+          (1) &nbsp; 2 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r3" value="09:00"
+            
+          >
+          (2) &nbsp; 9 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r3" value="10:00"
+            
+          >
+          (3) &nbsp; 10 じ
+        </label><br />
+       
+       <script>registerAnswerOkEvents('3');</script>
+      </td>
+      <td>
+        <canvas id="c2"></canvas>
+        <script>clock('c2', '02:00');</script>
+      </td>
+    </tr>
+  </table>
+ 
+<hr style='clear:both;'/>
+<table>
+<tr>
+  <td>
+    <canvas id="current"></canvas>
+    <script>setInterval(currentClock, 1000, 'current', {size: 100, fontSize: 10, displaySecond: true});</script>
+  </td>
+  <td>
+    <pre>
+      ---
+quiz_count: 3
+selection_count: 3
+selection_sort: true
+min_hour: 1
+max_hour: 12
+minute_unit: 60
+answer_ok_color: lightgreen
+file_path_proc: '->(){"tokei_quiz_#{Time.now.strftime(''%Y%m%d_%H%M%S'')}.html"}
+
+'
+
+    </pre>
+  </td>
+</tr>
+</body>
+</html>

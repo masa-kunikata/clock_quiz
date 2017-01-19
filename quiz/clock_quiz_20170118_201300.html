@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tokei_quiz</title>
+<style>
+.question td {
+  vertical-align: top;
+  line-height: 1.5em;
+}
+.question {
+  float: left;
+}
+</style>
+<script src='js/canvas_clock.js'></script>
+<script>
+/*正答選択時のイベント登録*/
+function registerAnswerOkEvents(num){
+  var question = document.getElementById('q' + num);
+  var answer = document.getElementById('a' + num);
+  answer.addEventListener('change', function(){
+   question.style['background-color'] = answer.checked ? 'lightgreen' : 'white';
+  });
+  question.addEventListener('click', function(){
+   if(answer.checked) return;
+   question.style['background-color'] = 'white';
+  });
+}
+</script>
+</head>
+<body>
+ 
+  <table class='question' id="q1">
+    <tr>
+      <td>
+       <span id="s1">■もんだい [1]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r1" value="01:31"
+            
+          >
+          (1) &nbsp; 1 じ 31 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r1" value="02:57"
+            
+              id="a1"
+            
+          >
+          (2) &nbsp; 2 じ 57 ふん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r1" value="03:11"
+            
+          >
+          (3) &nbsp; 3 じ 11 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r1" value="04:27"
+            
+          >
+          (4) &nbsp; 4 じ 27 ふん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r1" value="04:36"
+            
+          >
+          (5) &nbsp; 4 じ 36 ぷん
+        </label><br />
+       
+       <script>registerAnswerOkEvents('1');</script>
+      </td>
+      <td>
+        <canvas id="c0"></canvas>
+        <script>clock('c0', '02:57');</script>
+      </td>
+    </tr>
+  </table>
+ 
+<hr style='clear:both;'/>
+<table>
+<tr>
+  <td>
+    <canvas id="current"></canvas>
+    <script>setInterval(currentClock, 1000, 'current', {size: 100, fontSize: 10, displaySecond: true});</script>
+  </td>
+  <td>
+    <pre>
+      ---
+quiz_count: 1
+selection_count: 5
+selection_sort: true
+min_hour: 1
+max_hour: 12
+minute_unit: 1
+answer_ok_color: lightgreen
+file_path_proc: '->(){"tokei_quiz_#{Time.now.strftime(''%Y%m%d_%H%M%S'')}.html"}
+
+'
+
+    </pre>
+  </td>
+</tr>
+</body>
+</html>

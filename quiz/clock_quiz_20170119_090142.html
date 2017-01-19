@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tokei_quiz</title>
+<style>
+.question td {
+  vertical-align: top;
+  line-height: 1.5em;
+}
+.question {
+  float: left;
+}
+</style>
+<script src='js/canvas_clock.js'></script>
+<script>
+/*正答選択時のイベント登録*/
+function registerAnswerOkEvents(num){
+  var question = document.getElementById('q' + num);
+  var answer = document.getElementById('a' + num);
+  answer.addEventListener('change', function(){
+   question.style['background-color'] = answer.checked ? 'lightgreen' : 'white';
+  });
+  question.addEventListener('click', function(){
+   if(answer.checked) return;
+   question.style['background-color'] = 'white';
+  });
+}
+</script>
+</head>
+<body>
+ 
+  <table class='question' id="q1">
+    <tr>
+      <td>
+       <span id="s1">■もんだい [1]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r1" value="06:40"
+            
+          >
+          (1) &nbsp; 6 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r1" value="10:00"
+            
+          >
+          (2) &nbsp; 10 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r1" value="01:40"
+            
+              id="a1"
+            
+          >
+          (3) &nbsp; 1 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r1" value="03:00"
+            
+          >
+          (4) &nbsp; 3 じ
+        </label><br />
+       
+       <script>registerAnswerOkEvents('1');</script>
+      </td>
+      <td>
+        <canvas id="c0"></canvas>
+        <script>clock('c0', '01:40');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q2">
+    <tr>
+      <td>
+       <span id="s2">■もんだい [2]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r2" value="02:00"
+            
+              id="a2"
+            
+          >
+          (1) &nbsp; 2 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r2" value="09:40"
+            
+          >
+          (2) &nbsp; 9 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r2" value="01:20"
+            
+          >
+          (3) &nbsp; 1 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r2" value="07:20"
+            
+          >
+          (4) &nbsp; 7 じ 20 ぷん
+        </label><br />
+       
+       <script>registerAnswerOkEvents('2');</script>
+      </td>
+      <td>
+        <canvas id="c1"></canvas>
+        <script>clock('c1', '02:00');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q3">
+    <tr>
+      <td>
+       <span id="s3">■もんだい [3]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r3" value="04:40"
+            
+          >
+          (1) &nbsp; 4 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r3" value="03:20"
+            
+              id="a3"
+            
+          >
+          (2) &nbsp; 3 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r3" value="10:40"
+            
+          >
+          (3) &nbsp; 10 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r3" value="05:00"
+            
+          >
+          (4) &nbsp; 5 じ
+        </label><br />
+       
+       <script>registerAnswerOkEvents('3');</script>
+      </td>
+      <td>
+        <canvas id="c2"></canvas>
+        <script>clock('c2', '03:20');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q4">
+    <tr>
+      <td>
+       <span id="s4">■もんだい [4]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r4" value="01:40"
+            
+          >
+          (1) &nbsp; 1 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r4" value="03:20"
+            
+          >
+          (2) &nbsp; 3 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r4" value="01:20"
+            
+          >
+          (3) &nbsp; 1 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r4" value="04:20"
+            
+              id="a4"
+            
+          >
+          (4) &nbsp; 4 じ 20 ぷん
+        </label><br />
+       
+       <script>registerAnswerOkEvents('4');</script>
+      </td>
+      <td>
+        <canvas id="c3"></canvas>
+        <script>clock('c3', '04:20');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q5">
+    <tr>
+      <td>
+       <span id="s5">■もんだい [5]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r5" value="05:20"
+            
+              id="a5"
+            
+          >
+          (1) &nbsp; 5 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r5" value="03:20"
+            
+          >
+          (2) &nbsp; 3 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r5" value="12:20"
+            
+          >
+          (3) &nbsp; 12 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r5" value="06:40"
+            
+          >
+          (4) &nbsp; 6 じ 40 ぷん
+        </label><br />
+       
+       <script>registerAnswerOkEvents('5');</script>
+      </td>
+      <td>
+        <canvas id="c4"></canvas>
+        <script>clock('c4', '05:20');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q6">
+    <tr>
+      <td>
+       <span id="s6">■もんだい [6]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r6" value="06:20"
+            
+          >
+          (1) &nbsp; 6 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r6" value="03:00"
+            
+          >
+          (2) &nbsp; 3 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r6" value="04:20"
+            
+          >
+          (3) &nbsp; 4 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r6" value="05:40"
+            
+              id="a6"
+            
+          >
+          (4) &nbsp; 5 じ 40 ぷん
+        </label><br />
+       
+       <script>registerAnswerOkEvents('6');</script>
+      </td>
+      <td>
+        <canvas id="c5"></canvas>
+        <script>clock('c5', '05:40');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q7">
+    <tr>
+      <td>
+       <span id="s7">■もんだい [7]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r7" value="03:40"
+            
+          >
+          (1) &nbsp; 3 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r7" value="06:00"
+            
+              id="a7"
+            
+          >
+          (2) &nbsp; 6 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r7" value="05:20"
+            
+          >
+          (3) &nbsp; 5 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r7" value="07:40"
+            
+          >
+          (4) &nbsp; 7 じ 40 ぷん
+        </label><br />
+       
+       <script>registerAnswerOkEvents('7');</script>
+      </td>
+      <td>
+        <canvas id="c6"></canvas>
+        <script>clock('c6', '06:00');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q8">
+    <tr>
+      <td>
+       <span id="s8">■もんだい [8]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r8" value="05:20"
+            
+          >
+          (1) &nbsp; 5 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r8" value="07:20"
+            
+              id="a8"
+            
+          >
+          (2) &nbsp; 7 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r8" value="02:00"
+            
+          >
+          (3) &nbsp; 2 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r8" value="01:00"
+            
+          >
+          (4) &nbsp; 1 じ
+        </label><br />
+       
+       <script>registerAnswerOkEvents('8');</script>
+      </td>
+      <td>
+        <canvas id="c7"></canvas>
+        <script>clock('c7', '07:20');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q9">
+    <tr>
+      <td>
+       <span id="s9">■もんだい [9]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r9" value="09:20"
+            
+              id="a9"
+            
+          >
+          (1) &nbsp; 9 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r9" value="08:40"
+            
+          >
+          (2) &nbsp; 8 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r9" value="02:00"
+            
+          >
+          (3) &nbsp; 2 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r9" value="01:20"
+            
+          >
+          (4) &nbsp; 1 じ 20 ぷん
+        </label><br />
+       
+       <script>registerAnswerOkEvents('9');</script>
+      </td>
+      <td>
+        <canvas id="c8"></canvas>
+        <script>clock('c8', '09:20');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q10">
+    <tr>
+      <td>
+       <span id="s10">■もんだい [10]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r10" value="11:20"
+            
+          >
+          (1) &nbsp; 11 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r10" value="09:40"
+            
+              id="a10"
+            
+          >
+          (2) &nbsp; 9 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r10" value="02:00"
+            
+          >
+          (3) &nbsp; 2 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r10" value="01:20"
+            
+          >
+          (4) &nbsp; 1 じ 20 ぷん
+        </label><br />
+       
+       <script>registerAnswerOkEvents('10');</script>
+      </td>
+      <td>
+        <canvas id="c9"></canvas>
+        <script>clock('c9', '09:40');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q11">
+    <tr>
+      <td>
+       <span id="s11">■もんだい [11]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r11" value="06:40"
+            
+          >
+          (1) &nbsp; 6 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r11" value="10:20"
+            
+              id="a11"
+            
+          >
+          (2) &nbsp; 10 じ 20 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r11" value="10:40"
+            
+          >
+          (3) &nbsp; 10 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r11" value="04:20"
+            
+          >
+          (4) &nbsp; 4 じ 20 ぷん
+        </label><br />
+       
+       <script>registerAnswerOkEvents('11');</script>
+      </td>
+      <td>
+        <canvas id="c10"></canvas>
+        <script>clock('c10', '10:20');</script>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class='question' id="q12">
+    <tr>
+      <td>
+       <span id="s12">■もんだい [12]</span><br /><br />
+       
+        <label>
+          <input type="radio" name="r12" value="08:00"
+            
+          >
+          (1) &nbsp; 8 じ
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r12" value="12:40"
+            
+              id="a12"
+            
+          >
+          (2) &nbsp; 12 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r12" value="03:40"
+            
+          >
+          (3) &nbsp; 3 じ 40 ぷん
+        </label><br />
+       
+        <label>
+          <input type="radio" name="r12" value="06:00"
+            
+          >
+          (4) &nbsp; 6 じ
+        </label><br />
+       
+       <script>registerAnswerOkEvents('12');</script>
+      </td>
+      <td>
+        <canvas id="c11"></canvas>
+        <script>clock('c11', '12:40');</script>
+      </td>
+    </tr>
+  </table>
+ 
+<hr style='clear:both;'/>
+<table>
+<tr>
+  <td>
+    <canvas id="current"></canvas>
+    <script>setInterval(currentClock, 1000, 'current', {size: 100, fontSize: 10, displaySecond: true});</script>
+  </td>
+  <td>
+    <pre>
+      ---
+quiz_count: 12
+quiz_sort: true
+selection_count: 4
+selection_sort: false
+min_hour: 1
+max_hour: 12
+minute_unit: 20
+answer_ok_color: lightgreen
+file_path_proc: '->(){"quiz/tokei_quiz_#{Time.now.strftime(''%Y%m%d_%H%M%S'')}.html"}
+
+'
+
+    </pre>
+  </td>
+</tr>
+</body>
+</html>
